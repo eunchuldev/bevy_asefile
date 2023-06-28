@@ -1,8 +1,8 @@
-mod components;
 mod assets;
-mod systems;
+mod components;
 mod plugins;
+mod systems;
 
-pub use components::*;
 pub use assets::*;
+pub use components::*;
 pub use plugins::*;
