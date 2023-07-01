@@ -1,6 +1,6 @@
 [package]
 name = "bevy_asefile"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 resolver = "2"
 license = "MIT OR Apache-2.0"
@@ -15,9 +15,9 @@ bevy = { version = "0.10", default-features = false, features = [
     "bevy_render",
     "bevy_sprite"
 ] }
-asefile = "^0.3"
-image = { version = "^0", default-features = false }
+asefile = "0.3.6"
+image = { version = "0.23", default-features = false }
 
 [dev-dependencies]
-image = { version = "^0", default-features = false, features = ["png"] }
+image = { version = "0.23", default-features = false, features = ["png"] }
 bevy = { version = "0.10", features = ["wayland"] }

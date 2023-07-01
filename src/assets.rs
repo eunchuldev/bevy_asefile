@@ -91,14 +91,14 @@ impl AssetLoader for AsepriteLoader {
             let non_empty_cels: Vec<_> = (0..num_frames * num_layers)
                 .filter(|i| {
                     matches!(asefile.layer(i / num_frames).layer_type(), LayerType::Group)
-                        || asefile.cel(i % num_frames, i / num_frames).is_empty()
+                        || !asefile.cel(i % num_frames, i / num_frames).is_empty()
                 })
                 .map(|i| asefile.cel(i % num_frames, i / num_frames))
                 .collect();
             let non_empty_cel_images: Vec<_> = non_empty_cels
                 .iter()
                 .map(|cel| {
-                    if cel.is_empty() {
+                    if !cel.is_empty() {
                         Some(cel.image())
                     } else {
                         None

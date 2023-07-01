@@ -196,9 +196,9 @@ checksum = "96d30a06541fbafbc7f82ed10c06164cfbd2c401138f6addd8404629c4b16711"
 
 [[package]]
 name = "asefile"
-version = "0.3.5"
+version = "0.3.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "10a71de7aecd2d0a76ec90fde2c443d12667c737d92de76bd187f101eca37891"
+checksum = "6277c3125ad5045ff11474a50dd43b31baffdd32c17e580137f176b8025fde71"
 dependencies = [
  "bitflags",
  "byteorder",
