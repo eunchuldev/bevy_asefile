@@ -84,10 +84,11 @@ impl AssetLoader for AsepriteLoader {
             debug!("Loading aseprite at {:?}", load_context.path());
             let asefile = AsepriteFile::read(bytes)?;
 
+            let padding = Vec2::new(1.0, 1.0);
             let num_frames = asefile.num_frames();
             let num_layers = asefile.num_layers();
-            let cel_width = asefile.width() as u32;
-            let cel_height = asefile.width() as u32;
+            let cel_width = asefile.width() as u32 + (padding.x as u32);
+            let cel_height = asefile.width() as u32 + (padding.y as u32);
             let non_empty_cels: Vec<_> = (0..num_frames * num_layers)
                 .filter(|i| {
                     matches!(asefile.layer(i / num_frames).layer_type(), LayerType::Group)
@@ -163,10 +164,10 @@ impl AssetLoader for AsepriteLoader {
                 "atlas",
                 LoadedAsset::new(TextureAtlas::from_grid(
                     texture,
-                    Vec2::new(cel_width as f32, cel_height as f32),
+                    Vec2::new(cel_width as f32 - padding.x, cel_height as f32 - padding.y),
                     num_rows as usize,
                     num_rows as usize,
-                    None,
+                    Some(padding),
                     None,
                 )),
             );
